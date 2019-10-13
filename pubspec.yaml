@@ -12,6 +12,7 @@ dependencies:
   dio: ^3.0.3
   dio_flutter_transformer: ^3.0.2
   sealed_unions: ^3.0.2+2
+  rxdart: ^0.22.3
 
 dev_dependencies:
   flutter_test:
