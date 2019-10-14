@@ -25,7 +25,10 @@ class MyHomepageBloc extends Bloc {
   void _loadData() async {
     _state.add(State.loading());
     final UseCaseResult<WeatherForecast> result = await _useCase.execute();
-   _state.add(result.join((success) => State.ready(), (error) => State.error()));
+    _state.add(result.join((success) {
+      final WeatherForecast data = success.data;
+      return State.ready(data.todayWeather, data.fiveDayForecast);
+    }, (error) => State.error()));
   }
 
   @override

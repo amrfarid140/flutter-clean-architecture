@@ -1,3 +1,4 @@
+import 'package:clean_weather/domain/model/weather_data_item.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
 class State extends Union3Impl<Ready, Loading, Error> {
@@ -5,7 +6,9 @@ class State extends Union3Impl<Ready, Loading, Error> {
 
   State(Union3<Ready, Loading, Error> union) : super(union);
 
-  factory State.ready() => _factory.first(Ready._());
+  factory State.ready(
+          WeatherDataItem todayWeather, List<WeatherDataItem> forecast) =>
+      _factory.first(Ready._(todayWeather, forecast));
 
   factory State.loading() => _factory.second(Loading._());
 
@@ -13,7 +16,10 @@ class State extends Union3Impl<Ready, Loading, Error> {
 }
 
 class Ready {
-  Ready._();
+  final WeatherDataItem todayWeather;
+  final List<WeatherDataItem> forecast;
+
+  Ready._(this.todayWeather, this.forecast);
 }
 
 class Loading {
