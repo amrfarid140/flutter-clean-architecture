@@ -1,4 +1,5 @@
 import 'package:clean_weather/bloc/action.dart' as homePage;
+import 'package:clean_weather/bloc/dependency_provider.dart';
 import 'package:clean_weather/bloc/my_homepage_bloc.dart';
 import 'package:clean_weather/bloc/state.dart' as homePage;
 import 'package:clean_weather/ui/error_widget.dart' as homePage;
@@ -7,12 +8,9 @@ import 'package:clean_weather/ui/today_widget.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
-  final MyHomepageBloc _bloc;
-
-  MyHomePage(this._bloc);
-
   @override
   Widget build(BuildContext context) {
+    final MyHomepageBloc _bloc = DependencyProvider.get(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Weather"),
