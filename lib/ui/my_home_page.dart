@@ -26,7 +26,7 @@ class MyHomePage extends StatelessWidget {
                     AsyncSnapshot<homePage.State> snapshot) =>
                 snapshot.data.join(
                     (ready) => ReadyWidget(ready),
-                    (loading) => CircularProgressIndicator(),
+                    (loading) => Center(child: CircularProgressIndicator(),),
                     (error) => homePage.ErrorWidget()),
           )),
       floatingActionButton: FloatingActionButton(

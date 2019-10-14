@@ -8,11 +8,11 @@ class State extends Union3Impl<Ready, Loading, Error> {
 
   factory State.ready(
           WeatherDataItem todayWeather, List<WeatherDataItem> forecast) =>
-      _factory.first(Ready._(todayWeather, forecast));
+      State(_factory.first(Ready._(todayWeather, forecast)));
 
-  factory State.loading() => _factory.second(Loading._());
+  factory State.loading() => State(_factory.second(Loading._()));
 
-  factory State.error() => _factory.third(Error._());
+  factory State.error() => State(_factory.third(Error._()));
 }
 
 class Ready {

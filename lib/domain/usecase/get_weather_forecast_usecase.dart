@@ -15,6 +15,7 @@ class GetWeatherForecastUseCase {
       return UseCaseResult<WeatherForecast>.success(
           WeatherForecast(todayWeather, fiveDayForecast));
     } catch (error) {
+      print(error);
       return UseCaseResult<WeatherForecast>.error(error);
     }
   }
