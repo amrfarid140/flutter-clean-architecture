@@ -49,7 +49,8 @@ class ReadyWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         TodayWidget(_readyState.todayWeather),
-        ForecastWidget(_readyState.forecast)
+        Expanded(child: ForecastWidget(_readyState.forecast),)
+
       ],
     );
   }

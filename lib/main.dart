@@ -21,7 +21,7 @@ _parseAndDecode(String response) {
     final List<ApiCurrentWeather> datass = itemData.map<ApiCurrentWeather>((item) {
       final mainData = item["main"];
 
-      return ApiCurrentWeather(dt: item["dt"], main: ApiCurrentWeatherMain(
+      return ApiCurrentWeather(dt: item["dt"] * 1000, main: ApiCurrentWeatherMain(
         temp_max: mainData["temp_max"].toDouble(),
         temp_min: mainData["temp_min"].toDouble(),
         temp: mainData["temp"].toDouble(),
