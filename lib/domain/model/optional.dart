@@ -4,7 +4,7 @@ class Optional<T> extends Union2Impl<Available,NotAvailable> {
   static Doublet<Available,NotAvailable> _doublet =
       Doublet<Available,NotAvailable>();
   
-  Optional._(Union2<Available<T>, NotAvailable> union) : super(union);
+  Optional._(Union2<Available, NotAvailable> union) : super(union);
 
   factory Optional.available(T data) => Optional._(_doublet.first(Available._(data)));
   factory Optional.notAvailable() => Optional._(_doublet.second(NotAvailable._()));

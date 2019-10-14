@@ -3,7 +3,7 @@ description: Another Weather App
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,6 +13,7 @@ dependencies:
   dio_flutter_transformer: ^3.0.2
   sealed_unions: ^3.0.2+2
   rxdart: ^0.22.3
+  intl: ^0.16.0
 
 dev_dependencies:
   flutter_test:
