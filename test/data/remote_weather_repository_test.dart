@@ -77,5 +77,10 @@ void main() {
           // Then
           verify(mockMapper.map(any));
         });
+
+    tearDown((){
+      reset(mockDio);
+      reset(mockMapper);
+    });
   });
 }

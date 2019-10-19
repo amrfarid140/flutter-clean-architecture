@@ -16,7 +16,7 @@ void main() {
         () async {
       // Given
       when(mockWeatherRepository.getCurrentWeather())
-          .thenThrow(RangeError("test error"));
+          .thenThrow(ArgumentError());
       when(mockWeatherRepository.getWeatherForecast())
           .thenAnswer((_) => Future.value([]));
       // When
@@ -33,7 +33,7 @@ void main() {
       when(mockWeatherRepository.getCurrentWeather())
           .thenAnswer((_) => Future.value(_MockWeatherDataItem()));
       when(mockWeatherRepository.getWeatherForecast())
-          .thenThrow(RangeError("test error"));
+          .thenThrow(ArgumentError());
       // When
       final result =
           await GetWeatherForecastUseCase(mockWeatherRepository).execute();
@@ -57,6 +57,10 @@ void main() {
           result.join((success) => true && success.data is WeatherForecast,
               (error) => false),
           equals(true));
+    });
+
+    tearDown((){
+      reset(mockWeatherRepository);
     });
   });
 }
